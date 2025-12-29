@@ -256,7 +256,7 @@ EduVerse-USA/
 
 ## Author
 
-This project was developed as a Final Year Project for an NLP course, demonstrating practical applications of conversational AI in education technology.
+Muhammad Zafar Ul Haq
 
 ---
 
