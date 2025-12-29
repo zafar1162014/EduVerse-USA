@@ -57,20 +57,20 @@ Since we're using a pre-trained Large Language Model (LLM), we don't train it fr
 
 ### Key NLP Concepts Implemented
 
-| Concept | Implementation |
-|---------|----------------|
-| **Intent Classification** | System prompt instructs the model to identify query types (admissions, scholarships, SOP, tests, visa) |
-| **Named Entity Recognition** | Model extracts entities like university names, test scores, deadlines |
-| **Context Management** | Full conversation history is sent with each request for multi-turn dialogue |
-| **Domain Restriction** | System prompt strictly limits responses to U.S. education topics only |
-| **Response Grounding** | Model is instructed to avoid speculation and stick to verified information |
+| Concept                      | Implementation                                                                                         |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------ |
+| **Intent Classification**    | System prompt instructs the model to identify query types (admissions, scholarships, SOP, tests, visa) |
+| **Named Entity Recognition** | Model extracts entities like university names, test scores, deadlines                                  |
+| **Context Management**       | Full conversation history is sent with each request for multi-turn dialogue                            |
+| **Domain Restriction**       | System prompt strictly limits responses to U.S. education topics only                                  |
+| **Response Grounding**       | Model is instructed to avoid speculation and stick to verified information                             |
 
 ### System Prompt (Fine-Tuning via Instructions)
 
 The core NLP behavior is defined in `supabase/functions/chat/index.ts`:
 
 ```javascript
-const SYSTEM_PROMPT = `You are EduVerse USA, an expert NLP-based AI study assistant 
+const SYSTEM_PROMPT = `You are EduVerse USA, an expert NLP-based AI study assistant
 **strictly focused** on U.S. higher education guidance for international students.
 
 **CRITICAL SCOPE RESTRICTION:**
@@ -90,43 +90,46 @@ This approach is called **instruction tuning** - we guide the model's behavior t
 
 For academic documentation, we also include Python notebooks that demonstrate classical NLP techniques:
 
-| Notebook | Description |
-|----------|-------------|
-| `01_preprocessing.ipynb` | Text cleaning, tokenization, lemmatization |
-| `02_intent_classification.ipynb` | TF-IDF + Logistic Regression for intent detection |
-| `03_named_entity_recognition.ipynb` | Rule-based NER with regex and gazetteers |
-| `04_context_management.ipynb` | Dialogue state tracking concepts |
-| `05_rag_retrieval.ipynb` | Retrieval-Augmented Generation basics |
-| `06_response_generation.ipynb` | Response composition techniques |
+| Notebook                            | Description                                       |
+| ----------------------------------- | ------------------------------------------------- |
+| `01_preprocessing.ipynb`            | Text cleaning, tokenization, lemmatization        |
+| `02_intent_classification.ipynb`    | TF-IDF + Logistic Regression for intent detection |
+| `03_named_entity_recognition.ipynb` | Rule-based NER with regex and gazetteers          |
+| `04_context_management.ipynb`       | Dialogue state tracking concepts                  |
+| `05_rag_retrieval.ipynb`            | Retrieval-Augmented Generation basics             |
+| `06_response_generation.ipynb`      | Response composition techniques                   |
 
 ---
 
 ## Technologies & Libraries Used
 
 ### Frontend
-| Library | Purpose |
-|---------|---------|
-| React 18 | UI framework |
-| TypeScript | Type-safe JavaScript |
-| Tailwind CSS | Styling |
-| Shadcn/UI | Component library |
-| React Router | Page navigation |
-| React Markdown | Rendering formatted AI responses |
-| React Hook Form + Zod | Form validation |
+
+| Library               | Purpose                          |
+| --------------------- | -------------------------------- |
+| React 18              | UI framework                     |
+| TypeScript            | Type-safe JavaScript             |
+| Tailwind CSS          | Styling                          |
+| Shadcn/UI             | Component library                |
+| React Router          | Page navigation                  |
+| React Markdown        | Rendering formatted AI responses |
+| React Hook Form + Zod | Form validation                  |
 
 ### Backend
-| Service | Purpose |
-|---------|---------|
-| Supabase | Database (PostgreSQL) + Authentication |
-| Edge Functions | Serverless backend logic |
-| AI Gateway | Access to Google Gemini LLM |
+
+| Service        | Purpose                                |
+| -------------- | -------------------------------------- |
+| Supabase       | Database (PostgreSQL) + Authentication |
+| Edge Functions | Serverless backend logic               |
+| AI Gateway     | Access to Google Gemini LLM            |
 
 ### NLP Pipeline (Python - Standalone)
-| Library | Purpose |
-|---------|---------|
-| NLTK | Text preprocessing |
+
+| Library      | Purpose                             |
+| ------------ | ----------------------------------- |
+| NLTK         | Text preprocessing                  |
 | Scikit-learn | Intent classification (TF-IDF + ML) |
-| SpaCy | NER (optional advanced usage) |
+| SpaCy        | NER (optional advanced usage)       |
 
 ---
 
@@ -141,7 +144,7 @@ For academic documentation, we also include Python notebooks that demonstrate cl
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/EduVerse-USA.git
+git clone https://github.com/zafar1162014/EduVerse-USA.git
 cd EduVerse-USA
 ```
 
@@ -173,9 +176,9 @@ npm run build
 
 The following variables are configured automatically:
 
-| Variable | Description |
-|----------|-------------|
-| `VITE_SUPABASE_URL` | Supabase project URL |
+| Variable                        | Description             |
+| ------------------------------- | ----------------------- |
+| `VITE_SUPABASE_URL`             | Supabase project URL    |
 | `VITE_SUPABASE_PUBLISHABLE_KEY` | Supabase public API key |
 
 ### Backend (Edge Functions)
@@ -185,6 +188,7 @@ The AI chat functionality requires an API key that is auto-provisioned.
 ### Google Authentication (Optional)
 
 To enable Google Sign-In:
+
 1. Create OAuth credentials in Google Cloud Console
 2. Configure in the backend settings
 
